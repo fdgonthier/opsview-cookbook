@@ -30,6 +30,12 @@ service "opsview-agent" do
   action :nothing
 end
 
+directory "/usr/local/nagios/etc/nrpe_local/" do
+  owner "nagios"
+  group "nagios"
+  mode 0775
+end
+
 template "/usr/local/nagios/etc/nrpe_local/allowed_hosts.cfg" do
   source "nrpe_allowed_hosts.erb"
   mode 0644
@@ -45,6 +51,12 @@ template "/usr/local/nagios/etc/nrpe_local/check_apt.cfg" do
   owner "root"
   group "root"
   notifies :restart, resources(:service => "opsview-agent")
+end
+
+directory "/etc/sudoers.d" do
+  owner "root"
+  group "root"
+  mode 0755
 end
 
 template "/etc/sudoers.d/nrpe_sudoers" do
