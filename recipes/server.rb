@@ -27,7 +27,11 @@ execute "preseed opsview" do
 end
 
 apt_repository "opsview" do
-  uri "http://downloads.opsera.com/opsview-community/latest/apt"
+  if node[:opsview][:version] == 3
+    uri "http://downloads.opsera.com/opsview-community/latest/apt"
+  else
+    uri "http://downloads.opsview.com/opsview-core/latest/apt"
+  end
   if node["platform_version"][0] == ?6
     distribution "squeeze"
   elsif node["platform_version"][0] == ?5

@@ -10,3 +10,5 @@ default[:opsview][:mysql_pwd] = "root"
 # Opsview
 default[:opsview][:opsview_pwd] = "root"
 
+# Use 3 for the older version.
+default[:opsview][:version] = "4"

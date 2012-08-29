@@ -3,7 +3,7 @@ maintainer       "François-Denis Gonthier"
 maintainer_email "fdgonthier@lostwebsite.net"
 license          "All rights reserved"
 description      "Installs/Configures opsview"
-version          "0.2"
+version          "0.3"
 
 depends          "java"
 depends          "apache2"
